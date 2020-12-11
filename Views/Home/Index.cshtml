@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Almaty Tuni Hotel</h1>
+    <p class="lead">Our hotel is newbie in Customer service so we would like to recommend our rooms.</p>
+    <p><a href="/Room/Index" class="btn btn-primary btn-lg">See list of rooms &raquo;</a></p>
+</div>
+
+<div class="row">
+    <form method="get" action="/Room/Searched">
+        <div class="form-group">
+            <label for="dateFrom">Date from</label>
+            <input type="date" name="dateFrom" required />
+        </div>
+        <div class="form-group">
+            <label for="dateTo">Date to</label>
+            <input type="date" name="dateTo" required />
+        </div>
+        <div class="form-group">
+            <label for="capacity">Capacity</label>
+            <input type="number" name="capacity" required />
+        </div>
+        <button type="submit" class="btn btn-primary">
+            Search room
+        </button>
+    </form>
+</div>
