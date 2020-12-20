@@ -5,11 +5,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Searched</h2>
+<h2>Rooms are satisfy your requirements</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+@if (User.Identity.Name.Equals("akkassov.ayan@gmail.com"))
+{
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+}
 <table class="table">
     <tr>
         <th>
@@ -24,29 +27,40 @@
         <th>
             @Html.DisplayNameFor(model => model.DateTo)
         </th>
-        <th></th>
+        <th>Action</th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Capacity)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Price)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DateFrom)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DateTo)
+    </td>
+    @if (User.Identity.Name.Equals("akkassov.ayan@gmail.com"))
+    {
+
         <td>
-            @Html.DisplayFor(modelItem => item.Capacity)
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
         </td>
+    }
+    else
+    {
         <td>
-            @Html.DisplayFor(modelItem => item.Price)
+            @Html.ActionLink("Book Room", "Details", new { id = item.Id })
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateFrom)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateTo)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+    }
+</tr>
+    }
 
 </table>

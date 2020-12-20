@@ -15,14 +15,14 @@ namespace Hotel.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Almaty Tyni is the Hotel Management System for Final ASP.NET subject";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Project Creators: Ayan Akkassov, Dias Kozhabay";
 
             return View();
         }

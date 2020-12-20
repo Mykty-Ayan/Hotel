@@ -23,7 +23,7 @@ namespace Hotel.Models
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [DataType(DataType.Date)]
         public DateTime DateTo { get; set; }
-
+        
 
     }
 

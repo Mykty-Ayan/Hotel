@@ -14,6 +14,7 @@ namespace Hotel.Controllers
     {
         private RoomsDBcontext1 db = new RoomsDBcontext1();
 
+        [OutputCache(Duration = 60)]
         // GET: Room
         public ActionResult Index()
         {
@@ -51,9 +52,10 @@ namespace Hotel.Controllers
             {
                 return HttpNotFound();
             }
+
             return View(room);
         }
-
+        [Authorize(Users = "akkassov.ayan@gmail.com")]
         // GET: Room/Create
         public ActionResult Create()
         {
@@ -64,6 +66,7 @@ namespace Hotel.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize(Users = "akkassov.ayan@gmail.com")]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Capacity,Price,DateFrom,DateTo")] Room room)
         {
@@ -76,7 +79,7 @@ namespace Hotel.Controllers
 
             return View(room);
         }
-
+        [Authorize(Users = "akkassov.ayan@gmail.com")]
         // GET: Room/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -95,6 +98,7 @@ namespace Hotel.Controllers
         // POST: Room/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Users = "akkassov.ayan@gmail.com")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Capacity,Price,DateFrom,DateTo")] Room room)
@@ -107,7 +111,7 @@ namespace Hotel.Controllers
             }
             return View(room);
         }
-
+        [Authorize(Users = "akkassov.ayan@gmail.com")]
         // GET: Room/Delete/5
         public ActionResult Delete(int? id)
         {

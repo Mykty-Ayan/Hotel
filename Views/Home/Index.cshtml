@@ -10,20 +10,25 @@
 
 <div class="row">
     <form method="get" action="/Room/Searched">
-        <div class="form-group">
-            <label for="dateFrom">Date from</label>
-            <input type="date" name="dateFrom" required />
+        <div class="col-4">
+            <div class="form-group">
+                <label for="dateFrom">Date from</label>
+                <input class="form-control" type="date" name="dateFrom" required />
+            </div>
+            <div class="form-group">
+                <label for="dateTo">Date to</label>
+                <input class="form-control" type="date" name="dateTo" required />
+            </div>
+            <div class="form-group">
+                <label for="capacity">Capacity</label>
+                <input class="form-control" type="number" name="capacity" required />
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Search room
+            </button>
         </div>
-        <div class="form-group">
-            <label for="dateTo">Date to</label>
-            <input type="date" name="dateTo" required />
-        </div>
-        <div class="form-group">
-            <label for="capacity">Capacity</label>
-            <input type="number" name="capacity" required />
-        </div>
-        <button type="submit" class="btn btn-primary">
-            Search room
-        </button>
+            
+
     </form>
 </div>
